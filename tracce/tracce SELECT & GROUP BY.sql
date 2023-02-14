@@ -29,7 +29,7 @@ SELECT COUNT(*) AS ' teachers without phone' FROM `teachers` WHERE `phone` IS NU
 
 
 -- 1. Contare quanti iscritti ci sono stati ogni anno
-
+SELECT YEAR(enrolment_date) AS 'Anno', COUNT(`enrolment_date`) AS 'iscritti' FROM `students` GROUP BY YEAR(enrolment_date);
 
 -- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
