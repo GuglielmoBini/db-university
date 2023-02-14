@@ -38,3 +38,4 @@ SELECT `office_address` AS 'indirizzo', COUNT(office_address) AS 'uffici prof' F
 SELECT `exam_id` AS 'Appello', AVG(`vote`) AS 'Media voti' FROM `exam_student` GROUP BY `exam_id`;
 
 -- 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+SELECT `department_id` AS 'dipartimento', COUNT(*) AS 'corsi di laurea' FROM `degrees` GROUP BY `department_id`;
