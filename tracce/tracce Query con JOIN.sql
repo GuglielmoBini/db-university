@@ -1,7 +1,7 @@
 -- -------------------------------------------- QUERY CON JOIN
 
 -- 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
-SELECT `students`.`name`, `students`.`surname`, `students`.`degree_id` 
+SELECT `students`.`name`, `students`.`surname`, `students`.`degree_id`, `degrees`.`name`
 FROM `students` 
 JOIN `degrees` 
 ON `degrees`.`id` = `students`.`degree_id` 
@@ -33,7 +33,15 @@ ON `departments`.`id` = `degrees`.`department_id`
 ORDER BY `students`.`surname` ASC;
 
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
-
+SELECT `degrees`.`id` AS 'id corso di laurea', `degrees`.`name` AS 'nome corso di laurea', `courses`.`id` AS 'id corso', `courses`.`name` AS 'nome corso', `teachers`.`id` AS ' id prof', `teachers`.`name` AS 'nome prof', `teachers`.`surname` AS 'cognome prof' 
+FROM `degrees` 
+JOIN `courses` 
+ON `degrees`.`id` = `courses`.`degree_id` 
+JOIN `course_teacher` 
+ON `courses`.`id` = `course_teacher`.`course_id` 
+JOIN `teachers` 
+ON `course_teacher`.`teacher_id` = `teachers`.`id` 
+ORDER BY `id corso di laurea` ASC
 
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 
